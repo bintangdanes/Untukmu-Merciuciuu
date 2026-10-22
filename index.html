@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Merciii 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" href="style.css?v=8" />
+</head>
+<body>
+
+  <!-- Floating polaroid rail, runs on every section -->
+  <div class="polaroid-rail" id="polaroidRail" aria-hidden="true">
+    <button class="rail-toggle" id="railToggle" title="Sembunyikan / tampilkan foto">🎞️</button>
+    <div class="polaroid-viewport" id="polaroidViewport">
+      <div class="polaroid-track" id="polaroidTrack"><!-- injected by JS --></div>
+    </div>
+  </div>
+
+  <!-- Soft photo background (merci-6) with pink wash -->
+  <div class="bg-photo" aria-hidden="true"></div>
+  <div class="bg-wash" aria-hidden="true"></div>
+
+  <!-- Decorative flower frame around the whole page -->
+  <div class="flower-frame" id="flowerFrame" aria-hidden="true">
+    <div class="corner tl">🌸</div>
+    <div class="corner tr">🌷</div>
+    <div class="corner bl">🌼</div>
+    <div class="corner br">🌺</div>
+  </div>
+
+  <!-- Falling hearts / petals background -->
+  <div class="petals" id="petals"></div>
+
+  <!-- Cute walking character -->
+  <div class="walker"><span class="speech">Merci, lihat ini! 💌</span>🐻</div>
+
+  <!-- Music control -->
+  <div class="music-control" id="musicControl" title="Putar / hentikan musik">
+    <span class="music-icon" id="musicIcon">♪</span>
+    <div class="music-bars" id="musicBars">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <audio id="bgAudio" loop preload="auto">
+    <source src="music/setengah-lima.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ============ OPENING / HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-pre">untuk orang yang paling kusayang,</p>
+      <h1 class="hero-name">Merci</h1>
+      <p class="hero-sub">selamat ulang tahun, bubb 🎀</p>
+      <p class="hero-date">23 · 10 · 2026</p>
+      <button class="enter-btn" id="enterBtn">klik sini donggg 💌</button>
+      <p class="hero-hint">ada lagu buat kamu 🎧</p>
+    </div>
+    <div class="scroll-cue">⌄</div>
+  </section>
+
+  <!-- ============ COUNTDOWN / CELEBRATION ============ -->
+  <section class="section section-wish reveal">
+    <div class="container">
+      <h2 class="script-title">Malam ini milikmu</h2>
+      <p class="lead">
+        Aku tak pandai membuat kejutan besar, jadi aku berusaha membuat ini, hehehe
+        halaman kecil yang isinya cuma kamu dan beberapa foto kita. Hari ini umurmu bertambah,
+        dan aku cuma mau bilang: makasih udah lahir, udah ada, dan tiba - tiba udah ada di sampingku.
+      </p>
+
+      <p class="cake-hint" id="cakeHint">Tiup lilinnya yuk Merr — gesek-gesek apinya sampai mati 🎂</p>
+
+      <!-- Interactive birthday cake -->
+      <div class="cake-stage" id="cakeStage">
+        <div class="cake-3d">
+          <!-- candles with flames -->
+          <div class="candle-row" id="candleRow">
+            <div class="candle"><span class="flame" data-lit="1"></span><span class="wick"></span><span class="stick"></span></div>
+            <div class="candle"><span class="flame" data-lit="1"></span><span class="wick"></span><span class="stick"></span></div>
+            <div class="candle"><span class="flame" data-lit="1"></span><span class="wick"></span><span class="stick"></span></div>
+            <div class="candle"><span class="flame" data-lit="1"></span><span class="wick"></span><span class="stick"></span></div>
+            <div class="candle"><span class="flame" data-lit="1"></span><span class="wick"></span><span class="stick"></span></div>
+          </div>
+          <!-- cake body -->
+          <div class="cake-top"></div>
+          <div class="cake-layer layer-1">
+            <div class="drip"></div><div class="drip"></div><div class="drip"></div>
+            <div class="drip"></div><div class="drip"></div><div class="drip"></div>
+          </div>
+          <div class="cake-layer layer-2"></div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <!-- message revealed from the smoke after blowing out -->
+        <div class="cake-wish" id="cakeWish">
+          <div class="smoke-puffs" id="smokePuffs"></div>
+          <div class="wish-text">
+            <p class="wish-make">Udah kamu tiup semua... 🤍</p>
+            <p class="wish-main">Semoga kamu selalu sehat, bahagia, rejekinya lancar <br />dan tetap menjadi orang yang aku kenal, aamiin</p
+            <p class="wish-sign">Selamat ulang tahun ke-20, Merci Ulul Azmi 🎂💕</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POETRY ============ -->
+  <section class="section section-poems reveal">
+    <div class="container">
+      <h2 class="script-title">Puisi for you, azekkkk</h2>
+      <p class="section-tag">aku nggak jago nulis, tapi ini dari hati🤍</p>
+
+      <div class="poem-grid">
+        <article class="poem-card">
+          <h3>Senja dan Kamu</h3>
+          <p>
+            Katanya senja itu indah,<br />
+            tapi mereka belum pernah melihatmu tertawa.<br />
+            Di matamu ada langit yang tak pernah mendung,<br />
+            dan aku memilih tinggal di sana selamanya.
+          </p>
+        </article>
+
+        <article class="poem-card">
+          <h3>Setengah Lima</h3>
+          <p>
+            Di jam yang sunyi, saat dunia melambat,<br />
+            aku memutar lagu dan teringat wajahmu.<br />
+            Merci, namamu saja sudah terdengar seperti terima kasih <br />
+            dan memang, hidupku berterima kasih atas hadirmu.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ YOUR OWN MESSAGE (editable) ============ -->
+  <section class="section section-note reveal">
+    <div class="container">
+      <h2 class="script-title">Pesanku Untukmu</h2>
+      <p class="section-tag">sedikit kata dari hatiku untukmu 🤍</p>
+
+      <div class="note-card">
+        <h3 class="note-greeting">Halo, untukmu yang sedang jauh di sana—Merci Ulul Azmi.</h3>
+
+        <p>
+          Aku sangat bersyukur kepada Sang Pencipta yang telah menghadirkanmu dalam duniaku.
+          Dulu, kita hanyalah dua orang asing yang bahkan tidak saling tahu keberadaan satu sama lain.
+          Kita baru benar-benar berkenalan setelah seluruh kegiatan kepanitiaan itu usai.
+        </p>
+
+        <p>
+          Jujur, kamu yang menyapaku lebih dulu saat itu, bahkan sempat terabaikan olehku.
+          Maaf ya untuk yang satu itu, hehe. Tapi untunglah, saat kamu membuka komunikasi,
+          aku membalas pesanmu. Bayangkan, kalau saja aku tak membalasnya kala itu,
+          entah dengan siapa kamu sedang sedekat ini sekarang.
+        </p>
+
+        <p>
+          Aku sempat tertegun melihat sosok perempuan se-ambisius dirimu tiba-tiba mengagumi
+          dan mengajakku mengobrol. Sentuhan perhatianmu itu sangat berarti buatku,
+          sebab sudah sekian lama aku tidak merasakan getaran yang seindah ini.
+        </p>
+
+        <p>
+          Di mataku, kamu adalah karunia indah yang Tuhan kirimkan. Kamu manis, cantik, baik hati,
+          dan selalu berhasil tertawa bersamaku (meski sesekali kamu suka bengong juga, hahahaha).
+        </p>
+
+        <p>
+          Selamat ulang tahun yang ke-20 ya bub! Semoga semua cita-citamu dapat terwujud dan hari-hari
+          baik selalu memelukmu. Aku sudah menyiapkan sesuatu untuk ulang tahun dan menyambut kepulanganmu ke
+          Indonesia. Tapi kita tidak bisa cuma sekadar bertemu biasa; aku ingin merancangnya
+          dengan spesial dan mengajakmu makan malam. Oh iya, kado ulang tahunmu sengaja
+          aku simpan untuk dirayakan bersama di hari itu nanti. Mungkin sekitar awal November kita adakan 
+        </p>
+
+        <p class="note-sign">From Bintang Daneswara 🤍</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section section-gallery reveal">
+    <div class="container">
+      <h2 class="script-title">Dokumentasi Indahmu</h2>
+      <p class="section-tag">Setiap foto menyimpan sepotong kebahagiaan atas kita berdua</p>
+
+      <div class="gallery" id="gallery">
+        <figure class="photo pic"><img src="photos/merci-1.jpeg" alt="Foto Merci 1" onerror="this.parentElement.classList.add('ph')" /><figcaption>Foto yang pertama kali Screenshoot hehehe</figcaption></figure>
+        <figure class="photo pic"><img src="photos/merci-2.jpeg" alt="Foto Merci 2" onerror="this.parentElement.classList.add('ph')" /><figcaption>Senyum indahmu dengan outfit pink ituu</figcaption></figure>
+        <figure class="photo pic"><img src="photos/merci-3.jpeg" alt="Foto Merci 3" onerror="this.parentElement.classList.add('ph')" /><figcaption>Merah delima yang mempesona</figcaption></figure>
+        <figure class="photo pic"><img src="photos/merci-4.jpeg" alt="Foto Merci 4" onerror="this.parentElement.classList.add('ph')" /><figcaption>Semanis minumanmu yang kau pegang</figcaption></figure>
+        <figure class="photo pic"><img src="photos/merci-5.jpeg" alt="Foto Merci 5" onerror="this.parentElement.classList.add('ph')" /><figcaption>Disaat kala itu di sudut Jogja</figcaption></figure>
+        <figure class="photo pic"><img src="photos/merci-6.jpeg" alt="Foto Merci 6" onerror="this.parentElement.classList.add('ph')" /><figcaption>Saat pertama kali, kita sedekat itu</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO HEART ============ -->
+  <section class="section section-heart reveal">
+    <div class="container">
+      <h2 class="script-title">You are in my Heart</h2>
+      <p class="section-tag">Semua momen kita menyatu jadi satu bentuk: 💗</p>
+      <div class="bouncers"><span>🎀</span><span>💗</span><span>🧸</span><span>💗</span><span>🎀</span></div>
+
+      <div class="heart-stage" id="heartStage">
+        <div class="heart-canvas" id="heartCanvas"></div>
+        <div class="heart-float">💖</div>
+      </div>
+
+      <p class="heart-caption">Happy Birthday, Merci Ulul Azmi</p>
+    </div>
+  </section>
+
+
+  <!-- ============ FINAL MESSAGE ============ -->
+  <section class="section section-final reveal">
+    <div class="container">
+      <h2 class="script-title">Dari Diriku</h2>
+      <p class="final-msg">
+        Maaf kalau aku sering salah, sering sibuk, sering nggak peka.
+        Tapi satu hal yang nggak pernah berubah: aku sayang kamu, Merci.
+        Terima kasih udah sabar sama aku..
+      </p>
+      <button class="love-btn" id="loveBtn">Coba klik ini bub 💖</button>
+      <div class="love-explosion" id="loveExplosion"></div>
+      <p class="sign">— yang selalu mikirin kamu, bahkan di jam setengah lima.</p>
+    </div>
+  </section>
+
+  <footer class="foot">dibuat diam-diam, khusus buat Merci · 23 Oktober 2026 🤍</footer>
+
+  <script src="script.js?v=8"></script>
+</body>
+</html>
